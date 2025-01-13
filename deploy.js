@@ -11,7 +11,8 @@ let deploy = function (folder, bucket, distId, invalidation) {
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
                         --invalidate "${invalidation}" \
-                        --noCache `;
+                        --noCache \
+                        --delete-removed`;
 
       const cwd = path.resolve(folder);
       exec.exec(command, [], { cwd }).then(resolve).catch(reject);
